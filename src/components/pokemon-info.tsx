@@ -83,12 +83,13 @@ export function PokemonInfo({ id, isOpen, ...props }: Props) {
             {/* Pokemon id */}
             <span className="text-sm font-extrabold text-gray-400 dark:text-gray-200">N° {pokemon.id}</span>
             {/* Pokemon name */}
-            <h2 className="text-2xl font-bold">{upperCaseFirst(pokemon.name)}</h2>
+            <h2 className="mt-0 text-2xl font-bold">{upperCaseFirst(pokemon.name)}</h2>
             {/* Pokemon types */}
             <div className="flex flex-row items-center justify-center gap-2 rounded-md">
               {pokemon.types.map((item: any, index: number) => (
                 <span key={index}
-                  className={`rounded px-2 py-1 font-semibold text-black dark:text-white ${typeColors[item.type.name]} opacity-70`}>
+                  className={`rounded px-2 py-1 font-semibold text-black dark:text-white 
+                  ${typeColors[item.type.name]} opacity-75 dark:opacity-100`}>
                   {upperCaseFirst(item.type.name)}
                 </span>
               ))}
@@ -169,7 +170,7 @@ export function PokemonInfo({ id, isOpen, ...props }: Props) {
             </div>
             {/* Pokemon Evolution */}
             <h4 className='text-base font-semibold'>Evolution</h4>
-            <div className="flex flex-row items-center justify-around xl:justify-center">
+            <div className="mb-4 flex flex-row items-center justify-around xl:justify-center">
               {pokemon.evolution_chain.map((item: any) => (
                 <>
                   {item.min_level && <span className='m-1 w-12 whitespace-nowrap p-2'>{item.min_level}</span>}

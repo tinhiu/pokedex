@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    images: {
+	images: {
 		domains: [
 			'raw.githubusercontent.com',
 			'lastfm.freetls.fastly.net'
 		],
+		unoptimized: true,
 	},
 }
 
