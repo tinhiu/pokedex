@@ -101,11 +101,11 @@ export function PokemonInfo({ id, isOpen, ...props }: Props) {
             <div className='flex flex-row items-center justify-center gap-2'>
               <div className='flex w-full flex-col items-center justify-center'>
                 <h4 className="text-lg font-semibold">Height</h4>
-                <span className='mt-2 w-full rounded-3xl bg-slate-300 py-2'>{pokemon.height}</span>
+                <span className='mt-2 w-full rounded-3xl bg-slate-300 py-2 dark:bg-black/30'>{pokemon.height}</span>
               </div>
               <div className='flex w-full flex-col items-center justify-center'>
                 <h4 className="text-lg font-semibold">Weight</h4>
-                <span className='mt-2  w-full rounded-3xl bg-slate-300 py-2'>{pokemon.weight}</span>
+                <span className='mt-2  w-full rounded-3xl bg-slate-300 py-2 dark:bg-black/30'>{pokemon.weight}</span>
               </div>
             </div>
             {/* Abilities */}
@@ -116,7 +116,9 @@ export function PokemonInfo({ id, isOpen, ...props }: Props) {
                   if (index == 3) return;
                   return (
                     <div key={index} className='flex w-full flex-col items-center justify-center'>
-                      <span className='w-full rounded-3xl bg-slate-300 py-2'>{upperCaseFirst(abi.ability.name)}</span>
+                      <span className='w-full rounded-3xl bg-slate-300 py-2 dark:bg-black/30'>
+                        {upperCaseFirst(abi.ability.name)}
+                      </span>
                     </div>
                   )
                 })
@@ -170,7 +172,7 @@ export function PokemonInfo({ id, isOpen, ...props }: Props) {
             </div>
             {/* Pokemon Evolution */}
             <h4 className='text-base font-semibold'>Evolution</h4>
-            <div className="mb-4 flex flex-row items-center justify-around xl:justify-center">
+            <div className="!mb-4 flex flex-row items-center justify-around xl:justify-center">
               {pokemon.evolution_chain.map((item: any) => (
                 <>
                   {item.min_level && <span className='m-1 w-12 whitespace-nowrap p-2'>{item.min_level}</span>}

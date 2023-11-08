@@ -73,9 +73,7 @@ async function setUpPokemonAbout(pokemon: any, id: number, species: any, evoluti
 	}
 	if (id >= 650) {
 		pokemon.image =
-			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/' +
-			id +
-			'.png';
+			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + id + '.png';
 	} else {
 		pokemon.image =
 			'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/' +
