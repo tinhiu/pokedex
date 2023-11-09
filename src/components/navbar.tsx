@@ -17,14 +17,9 @@ export default function Navbar({ setPokemonList, pokemonList }: Props) {
     useEffect(() => {
         const searchResult = async () => {
             let result: Pokemon[] = [];
-            for (let i = 0; i < pokemonList.length; i++) {
-                if (pokemonList[i].name) {
-                    if (pokemonList[i].name.replaceAll('-', ' ').includes(debouncedValue.toLowerCase())) {
-                        result.push(pokemonList[i]);
-                    }
-                }
-            }
-
+            result = pokemonList.filter(
+                (pokemon: any) => pokemon.name.toLowerCase().includes(debouncedValue.toLowerCase())
+            );
             setPokemonList(result);
         };
         if (searchValue != '') {
