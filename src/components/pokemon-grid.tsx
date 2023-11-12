@@ -15,10 +15,12 @@ import { PokemonInfo } from './pokemon-info';
 
 interface PokemonGridProps {
     pokemonList: Pokemon[],
+    sort: number
 }
 
 
-export function PokemonGrid({ pokemonList }: PokemonGridProps) {
+export function PokemonGrid({ pokemonList, sort }: PokemonGridProps) {
+
     const [pokemon, setPokemon] = useState<Pokemon[]>(pokemonList.slice(0, 60));
 
     const [isOpen, setIsOpen] = useState(true);
@@ -44,7 +46,8 @@ export function PokemonGrid({ pokemonList }: PokemonGridProps) {
     }, [inView]);
     useEffect(() => {
         setPokemon(pokemonList.slice(0, 60));
-    }, [pokemonList]);
+        if (sort) setPage(1);
+    }, [pokemonList, sort]);
     const handleOnclick = (id: number) => {
         setPokId(id);
         setIsOpen(true);

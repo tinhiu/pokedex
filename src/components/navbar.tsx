@@ -5,11 +5,14 @@ import { Pokemon } from '@/app/api/pokemon/route';
 import useDebounce from '@/hooks/useDebounce';
 import { useTheme } from 'next-themes'
 
+import { getListByName } from '@/lib/utils';
+
 type Props = {
     setPokemonList: Dispatch<SetStateAction<Pokemon[]>>;
-    pokemonList: Pokemon[]
+    pokemonList: Pokemon[],
+    sort: number
 };
-export default function Navbar({ setPokemonList, pokemonList }: Props) {
+export default function Navbar({ setPokemonList, pokemonList, sort }: Props) {
     const { setTheme, theme } = useTheme();
     const [searchValue, setSearchValue] = useState('');
     const inputRef = useRef() as React.MutableRefObject<HTMLInputElement>;
@@ -17,16 +20,18 @@ export default function Navbar({ setPokemonList, pokemonList }: Props) {
     useEffect(() => {
         const searchResult = async () => {
             let result: Pokemon[] = [];
-            result = pokemonList.filter(
-                (pokemon: any) => pokemon.name.toLowerCase().includes(debouncedValue.toLowerCase())
-            );
+            result = await getListByName(pokemonList, debouncedValue, sort);
             setPokemonList(result);
         };
+        const searchEmpty = async () => {
+            let result: Pokemon[] = [];
+            result = await getListByName(pokemonList, '', sort);
+            setPokemonList(result);
+        }
         if (searchValue != '') {
-
             searchResult();
         } else {
-            setPokemonList(pokemonList)
+            searchEmpty();
         }
         window.scrollTo({
             top: 0,

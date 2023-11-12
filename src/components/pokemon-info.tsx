@@ -74,10 +74,10 @@ export function PokemonInfo({ id, isOpen, ...props }: Props) {
           className={`fixed bottom-0 right-0 z-10 mx-0 mt-2 flex h-[82vh] w-full flex-col rounded-t-xl border-t
           bg-white px-4 text-center drop-shadow-md dark:border-0 dark:bg-stone-400
           xl:right-[calc(10vw-20px)] xl:mx-2 xl:w-96 xl:[--scale-from:0%] xl:[--scale-to:100%]`}>
-          <div className="no-scrollbar mx-auto mt-16 flex h-[86vh] w-fit flex-col justify-start space-y-3
+          <div className="no-scrollbar mx-auto mt-10 flex h-[86vh] w-fit flex-col justify-start space-y-3
            overflow-y-scroll duration-300 ease-in xl:w-full">
             {/* Pokemon img */}
-            <Image src={pokemon.image} alt={pokemon.name} width={120} height={120}
+            <Image src={pokemon.image} alt={pokemon.name} width={150} height={150}
               className="absolute inset-x-0 bottom-[77vh] mx-auto max-h-[22vh]"
             />
             {/* Pokemon id */}
