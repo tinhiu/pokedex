@@ -26,7 +26,7 @@ const ScrollToTop = () => {
 		<AnimatePresence>
 			{scrollPosition > 100 && (
 				<motion.div
-					className="fixed bottom-0 right-4 mb-6 flex justify-center 
+					className="fixed bottom-0 right-4 mb-6 flex justify-center cursor-pointer
 					rounded-full bg-slate-300 p-2 shadow-sm dark:bg-neutral-300/75"
 					onClick={goToTop}
 					initial={{ scale: 0, opacity: 0 }}
