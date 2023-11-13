@@ -58,21 +58,22 @@ export function PokemonGrid({ pokemonList, sort }: PokemonGridProps) {
             <div className="grid w-full grid-cols-2 lg:grid-cols-3">
                 {pokemon.map((pok: Pokemon, index: number) => (
                     <button key={index} className="group relative m-3 mt-16 flex min-w-[25%]
-                    scale-100 flex-col items-center justify-center rounded-2xl border-2 border-solid border-white bg-white pb-4 pt-12
+                    scale-100 flex-col items-center justify-center rounded-2xl 
+                    border-2 border-solid border-white bg-white pb-4 pt-12
                     shadow-md outline-none duration-300 ease-in hover:scale-[0.97] hover:cursor-help hover:border-gray-400
                     focus:outline-none focus:ring-2 focus:ring-stone-500 dark:border-black/10 dark:bg-stone-400
                      dark:hover:border-white/80 dark:focus:ring-gray-200 md:min-w-[20%]"
                         onClick={() => handleOnclick(pok.id)}
                     >
                         <Image src={pok.image} width={96} height={96} alt={pok.name}
-                            className="absolute -top-14 scale-100 duration-200 ease-in group-hover:scale-110 "
+                            className="pixel absolute -top-14 scale-100 duration-200 ease-in group-hover:scale-110"
                         />
                         <span className="text-sm font-extrabold text-gray-400 dark:text-gray-200">N° {pok.id}</span>
                         <h3 className="p-2 text-lg font-bold">{upperCaseFirst(pok.name)}</h3>
                         <div className="flex flex-row items-center gap-2 rounded-md">
                             {pok.types.map((item: string, index: number) => (
-                                <span key={index} className={`rounded px-2 py-1 font-semibold ${typeColors[item]}                       
-                                text-black opacity-75 dark:text-white dark:opacity-100 `}>
+                                <span key={index} className={`rounded px-2 py-1 font-semibold ${typeColors[item]}
+                                text-black opacity-75 dark:text-white dark:opacity-100`}>
                                     {upperCaseFirst(item)}
                                 </span>
                             ))}
@@ -81,13 +82,14 @@ export function PokemonGrid({ pokemonList, sort }: PokemonGridProps) {
                 ))}
                 <PokemonInfo id={pokId} isOpen={isOpen} setIsOpen={setIsOpen} setPokId={setPokId} />
             </div>
-            {pokemon.length > 0 && (pokemon.length != pokemonList.length ? <div
-                className="flex items-center justify-center p-4"
-                ref={ref}
-            >
-                <div className="pokemon flex items-center">
-                </div>
-            </div> : <h3 className='p-8'>There are no pokemon anymore!</h3>)}
+            {pokemon.length > 0 && (pokemon.length != pokemonList.length ?
+                <div
+                    className="flex items-center justify-center p-4"
+                    ref={ref}
+                >
+                    <div className="pokemon flex items-center">
+                    </div>
+                </div> : <h3 className='p-8'>There are no pokemon anymore!</h3>)}
             {pokemon.length == 0 &&
                 <Image src={leuleu} width={250} height={250} alt={'no-pokemon-found'} />
             }

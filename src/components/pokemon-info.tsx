@@ -78,7 +78,7 @@ export function PokemonInfo({ id, isOpen, ...props }: Props) {
            overflow-y-scroll duration-300 ease-in xl:w-full">
             {/* Pokemon img */}
             <Image src={pokemon.image} alt={pokemon.name} width={150} height={150}
-              className="absolute inset-x-0 bottom-[77vh] mx-auto max-h-[22vh]"
+              className="pixel absolute inset-x-0 bottom-[77vh] mx-auto max-h-[22vh]"
             />
             {/* Pokemon id */}
             <span className="text-sm font-extrabold text-gray-400 dark:text-gray-200">N° {pokemon.id}</span>
@@ -177,7 +177,7 @@ export function PokemonInfo({ id, isOpen, ...props }: Props) {
                 <>
                   {item.min_level && <span className='m-1 w-12 whitespace-nowrap p-2'>{item.min_level}</span>}
                   <Image src={item.image} alt={item.name} width={75} height={75}
-                    className='cursor-pointer'
+                    className='pixel cursor-pointer'
                     onClick={() => props.setPokId(item.id)}
                   />
                 </>
